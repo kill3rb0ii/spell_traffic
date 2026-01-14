@@ -41,8 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Car
+  - name: Grass
+    uniqueID: 3226260887
+    locked: 0
+  - name: Road
+    uniqueID: 3625121869
+    locked: 0
+  - name: Stripes
     uniqueID: 3648396727
+    locked: 0
+  - name: Car
+    uniqueID: 3894311719
     locked: 0
   m_RenderingLayers:
   - Default
