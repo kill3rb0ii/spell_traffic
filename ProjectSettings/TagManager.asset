@@ -53,5 +53,11 @@ TagManager:
   - name: Car
     uniqueID: 3894311719
     locked: 0
+  - name: Gate Doors
+    uniqueID: 3357117771
+    locked: 0
+  - name: Gate Frame
+    uniqueID: 2352100437
+    locked: 0
   m_RenderingLayers:
   - Default
