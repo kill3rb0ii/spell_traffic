@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject doorHinge1, doorHinge2;
 
     private GameObject spawnedCar;
-    private bool canPass = false;
+    private bool canGo = false;
 
 
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
             spawnedCar.transform.position = carPos;
         }
 
-        if(spawnedCar != null && spawnedCar.transform.position.x >= 0 && canPass == true) {
+        if(spawnedCar != null && spawnedCar.transform.position.x >= 0 && canGo == true) {
             Vector2 carPos = spawnedCar.transform.position;
             carPos += new Vector2(10 * Time.deltaTime, 0);
             spawnedCar.transform.position = carPos;
@@ -37,12 +37,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N)) {
             doorHinge1.transform.rotation = Quaternion.Euler(0, 0, -90);
             doorHinge2.transform.rotation = Quaternion.Euler(0, 0, -90);
-            canPass = true;
+            canGo = true;
         }
         if (Input.GetKeyDown(KeyCode.M)) {
             doorHinge1.transform.rotation = Quaternion.Euler(0, 0, 0);
             doorHinge2.transform.rotation = Quaternion.Euler(0, 0, 180);
-            canPass = false;
+            canGo = false;
         }
     }
 
