@@ -59,5 +59,8 @@ TagManager:
   - name: Gate Frame
     uniqueID: 2352100437
     locked: 0
+  - name: DialogueUI
+    uniqueID: 1728568657
+    locked: 0
   m_RenderingLayers:
   - Default

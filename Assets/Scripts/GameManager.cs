@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     public GameObject baseCar;
     public GameObject spawnPoint;
     public GameObject doorHinge1, doorHinge2;
+    public GameObject cue;
+    public TextAsset inkjson;
 
     private GameObject spawnedCar;
     private bool canGo = false;
@@ -19,11 +21,22 @@ public class GameManager : MonoBehaviour
         }
         if (spawnedCar != null && spawnedCar.transform.position.x < 0) {
             Vector2 carPos = spawnedCar.transform.position;
-            carPos += new Vector2 (10*Time.deltaTime, 0);
+            carPos += new Vector2 (10*Time.deltaTime , 0);
             spawnedCar.transform.position = carPos;
         }
 
-        if(spawnedCar != null && spawnedCar.transform.position.x >= 0 && canGo == true) {
+        if(spawnedCar != null && spawnedCar.transform.position.x > 0 && spawnedCar.transform.position.x < 0.1) {
+            cue.SetActive (true);
+            if (Input.GetKeyDown(KeyCode.F) && !DialogueManager.GetInstance().dialogueIsPlaying) {
+                DialogueManager.GetInstance().EnterDialogueMode(inkjson);
+            }
+        }
+
+        else {
+            cue.SetActive (false);
+        }
+
+        if (spawnedCar != null && spawnedCar.transform.position.x >= 0 && canGo == true) {
             Vector2 carPos = spawnedCar.transform.position;
             carPos += new Vector2(10 * Time.deltaTime, 0);
             spawnedCar.transform.position = carPos;
@@ -50,6 +63,7 @@ public class GameManager : MonoBehaviour
         
         if (spawnedCar == null) {
             spawnedCar = Instantiate(baseCar, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            cue.SetActive(false);
         }
         else {
             Debug.Log("Car is already spawned");
